@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Server 2 (requesting server)</title>
+    <link rel="stylesheet" href="http://localhost:3000/static/style.css" type="text/css" />
+  </head>
+  <body>
+    This is a cookie: <img id="cookie" src="http://localhost:3000/static/cookie.jpg" />
+
+    <p>Ingredients:
+      <ul id="ingredients-list">
+
+      </ul>
+    </p>
+
+    <script>
+      fetch("http://localhost:3000/data")
+        .then(response => response.json())
+        .then((payload) => {
+          if (payload.ingredients) {
+            const ingredients = payload.ingredients;
+
+            ingredients.forEach((i) => {
+              const newItem = document.createElement("li");
+              newItem.innerText = i;
+              document.getElementById("ingredients-list").append(newItem);
+            })
+          }
+        })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,6 @@
+{
+  "name": "server-2-requesting-server",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
